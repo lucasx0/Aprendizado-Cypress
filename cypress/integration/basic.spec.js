@@ -5,5 +5,11 @@ describe('cypress basics', () => {
         cy.visit('https://www.wcaquino.me/cypress/componentes.html')
 
         cy.title().should('be.equal', 'Campo de Treinamento')
+        cy.title().should('contain', 'Campo')
+
+        cy.title()
+            .should('be.equal', 'Campo de Treinamento')
+            .should('contain', 'Campo')
+
     })
 })
