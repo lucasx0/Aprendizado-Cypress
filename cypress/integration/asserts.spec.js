@@ -61,5 +61,13 @@ it('Types', () => {
 })
 
 it('String', () => {
+    const str = 'String de teste'
+
+    expect(str).to.be.equal('String de teste')
+    expect(str).to.have.length(15)
+    expect(str).to.contains('de')
+    expect(str).to.match(/de/)
+    expect(str).to.match(/'String/)
+    expect(str).to.match(/'teste$/)
     
 })
