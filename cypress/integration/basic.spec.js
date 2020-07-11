@@ -12,4 +12,11 @@ describe('cypress basics', () => {
             .and('contain', 'Campo')
 
     })
+
+    it.only('Should find and interact with an element', () => {
+        cy.visit('https://www.wcaquino.me/cypress/componentes.html')
+
+        cy.get('#buttonSimple').click()
+        cy.get('#buttonSimple').should('have.value', 'Obrigado!')
+    })
 })
