@@ -27,4 +27,31 @@ describe('Work with basic elements', () => {
         cy.contains('Voltar').click()
         cy.get('#resultado').should('have.text', 'Voltou!')
     })
+
+    it('TextFields', ()=>{
+        cy.get('#formNome').type('Cypress Test')
+        cy.get('#formNome').should('have.value', 'Cypress Test')
+        cy.get('#elementosForm\\:sugestoes')
+        .type('textarea')
+        .should('have.value', 'textarea')
+
+        cy.get('#tabelaUsuarios > :nth-child(2) > :nth-child(1) > :nth-child(6) > input')
+        .type('????')
+
+        cy.get('[data-cy=dataSobrenome]')
+        .type('teste12345{backspace}') //backspace apaga uma letra ou numero.
+
+        cy.get('#formNome').clear() //clear apaga o campo se estiver escrito
+        .type('Erro')
+    })
+
+    it.only('RaddioButton', ()=> {
+        cy.get('#formSexoFem')
+        .click()
+        .should('be.checked') //checando se está selecionado.
+
+        cy.get('#formSexoMasc').should('not.be.checked') //checando se não está selecionado.
+
+        cy.get("[name='formSexo']").should('have.length', 2) //Busca por propriedades
+    })
 })
