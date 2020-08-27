@@ -65,7 +65,7 @@ describe('Work with basic elements', () => {
         cy.get('#formComidaVegetariana').should('be.checked') // checando se vegetariana está marcado
     })
 
-    it.only('COMBO', ()=>{
+    it('COMBO', ()=>{
         // COMBO QUE SELECIONA 1 OPÇÃO.
         cy.get('[data-test=dataEscolaridade]')
         .select('2o grau completo')
@@ -74,5 +74,11 @@ describe('Work with basic elements', () => {
         cy.get('[data-test=dataEscolaridade]')
         .select('1graucomp')
         .should('have.value', '1graucomp')
+    })
+
+    it.only('COMBO MULTIPLO', ()=>{
+        // COMBO MULTIPLOS 
+        cy.get('[data-testid=dataEsportes]')
+        .select(['natacao', 'Corrida'])
     })
 })
