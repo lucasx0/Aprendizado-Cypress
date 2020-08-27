@@ -45,7 +45,7 @@ describe('Work with basic elements', () => {
         .type('Erro')
     })
 
-    it.only('RaddioButton', ()=> {
+    it('RaddioButton', ()=> {
         cy.get('#formSexoFem')
         .click()
         .should('be.checked') //checando se está selecionado.
@@ -53,5 +53,26 @@ describe('Work with basic elements', () => {
         cy.get('#formSexoMasc').should('not.be.checked') //checando se não está selecionado.
 
         cy.get("[name='formSexo']").should('have.length', 2) //Busca por propriedades
+    })
+
+    it('checkbox', () => {
+        cy.get('#formComidaPizza')
+        .click()
+        .should('be.checked')
+
+        cy.get('[name=formComidaFavorita]').click({multiple: true}) //pegando a classe master e seleciona os clicks
+        cy.get('#formComidaPizza').should('not.be.checked') //checando se pizza não está marcado
+        cy.get('#formComidaVegetariana').should('be.checked') // checando se vegetariana está marcado
+    })
+
+    it.only('COMBO', ()=>{
+        // COMBO QUE SELECIONA 1 OPÇÃO.
+        cy.get('[data-test=dataEscolaridade]')
+        .select('2o grau completo')
+        .should('have.value', '2graucomp')
+
+        cy.get('[data-test=dataEscolaridade]')
+        .select('1graucomp')
+        .should('have.value', '1graucomp')
     })
 })
