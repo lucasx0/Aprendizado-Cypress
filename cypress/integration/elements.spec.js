@@ -83,6 +83,6 @@ describe('Work with basic elements', () => {
         cy.get('[data-testid=dataEsportes]')
         .select(['natacao', 'Corrida'])
 
-        // TODO VALIDAR OPÇÕES DO COMBO MULTIPLO
+        // TODO VALIDAR OPÇÕES SELECIONADAS DO COMBO MULTIPLO
     })
 })
