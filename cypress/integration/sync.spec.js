@@ -34,9 +34,13 @@ describe('Esperas...', ()=>{
         .should('contain', 'Item 2')
     })
 
-    it.only('Uso do timeout', ()=>{
+    it('Uso do timeout', ()=>{
         cy.get('#buttonListDOM').click()
         cy.get('#lista li span', { timeout: 3000}) // INDICANDO TIMEOUT NO ELEMENTO
         .should('contain', 'Item 2')
+    })
+
+    it.only('Click retry', ()=>{
+        cy.get('#buttonCount').click().should('have.value', '1')
     })
 })
