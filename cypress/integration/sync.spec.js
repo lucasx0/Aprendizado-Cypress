@@ -25,12 +25,17 @@ describe('Esperas...', ()=>{
         .type('funciona') 
     })
 
-    it.only('Uso do find', ()=>{
+    it('Uso do find', ()=>{
         cy.get('#buttonList').click()
         cy.get('#Lista li')
         .find('span')//FIND = FAZER UMA NOVA BUSCA.
         .should('contain', 'Item 1')
         cy.get('#lista li span') // PARA PEGAR O SEGUNDO ELEMENTO É NECESSARIO FAZER UMA BUSCA COMPLETA
         .should('contain', 'Item 2')
+    })
+
+    it.only('Uso do timeout', ()=>{
+        cy.get('#buttonDelay').click()
+        cy.get('#novoCampo').should('exist')
     })
 })

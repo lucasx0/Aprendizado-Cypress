@@ -1,1 +1,3 @@
-{}
+{
+    "defaultCommandTimeout": 1000 // MUDANDO O TEMPO DE ESPERA DO CYPRESS EM GERAL
+}
