@@ -35,7 +35,8 @@ describe('Esperas...', ()=>{
     })
 
     it.only('Uso do timeout', ()=>{
-        cy.get('#buttonDelay').click()
-        cy.get('#novoCampo').should('exist')
+        cy.get('#buttonListDOM').click()
+        cy.get('#lista li span', { timeout: 3000}) // INDICANDO TIMEOUT NO ELEMENTO
+        .should('contain', 'Item 2')
     })
 })
