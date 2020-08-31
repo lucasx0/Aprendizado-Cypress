@@ -18,10 +18,19 @@ describe('Esperas...', ()=>{
         cy.get('#novoCampo').type('funciona')
     })
 
-    it.only('Deve fazer retrys', () => {
+    it('Deve fazer retrys', () => {
         cy.get('#buttonDelay').click() 
         cy.get('#novoCampo')
         .should('exist') // VERIFICA SE EXISTE
-        .type('funciona') /
+        .type('funciona') 
+    })
+
+    it.only('Uso do find', ()=>{
+        cy.get('#buttonList').click()
+        cy.get('#Lista li')
+        .find('span')//FIND = FAZER UMA NOVA BUSCA.
+        .should('contain', 'Item 1')
+        cy.get('#lista li span') // PARA PEGAR O SEGUNDO ELEMENTO É NECESSARIO FAZER UMA BUSCA COMPLETA
+        .should('contain', 'Item 2')
     })
 })
